@@ -3,7 +3,6 @@ package prueba.com.pruebaAgenda.controller;
 import java.util.List;
 
 import org.springframework.http.HttpStatus;
-import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -27,7 +26,7 @@ public class PersonaController {
 		this.personaService = personaService;
 	}
 	
-	@PostMapping
+	@PostMapping("/create")
 	public ResponseEntity<PersonaUsuarioResponseDto> save(@RequestBody PersonaUsuarioRequest  req){
 		PersonaUsuarioResponseDto response=this.personaService.save(req);
 		return new ResponseEntity<PersonaUsuarioResponseDto>(response,HttpStatus.CREATED);

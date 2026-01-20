@@ -24,7 +24,7 @@ export class CuentaService {
   }
 
   save(cuenta: CuentaRequest): Observable<CuentaResponse> {
-    return this.http.post<CuentaResponse>(`${this.apiUrl}/persona`, cuenta);
+    return this.http.post<CuentaResponse>(`${this.apiUrl}/persona/create`, cuenta);
   }
 
   update(cuenta: CuentaRequest, id: number): Observable<CuentaResponse> {

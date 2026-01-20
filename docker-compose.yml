@@ -1,31 +1,12 @@
 services:
 
-  # Servicio Angular
-  angular-app:
-    build:
-      context: ./frontend/agenda
-      dockerfile: Dockerfile
-    container_name: angular-19-app
-    ports:
-      - "4200:80"
-    environment:
-      - NODE_ENV=production
-    volumes:
-      # Para desarrollo: montar código fuente
-      # - ./:/app
-      # Para producción: solo archivos estáticos
-      - ./nginx.conf:/etc/nginx/nginx.conf
-    depends_on:
-      - oracle-db
-    networks:
-      - app-network
   oracle-db:
     build: ./oracle-db
     container_name: oracle-simple
     environment:
       ORACLE_PASSWORD: Oracle123
       APP_USER: AGENDA
-      APP_USER_PASSWORD: agenda123
+      APP_USER_PASSWORD: AG3nd5
     ports:
       - "1521:1521"
     networks:

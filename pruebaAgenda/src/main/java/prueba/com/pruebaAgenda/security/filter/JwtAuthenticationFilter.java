@@ -29,12 +29,12 @@ import prueba.com.pruebaAgenda.security.JwtSecurityService;
 public class JwtAuthenticationFilter extends OncePerRequestFilter{
 
 	private static final List<String> WHITELIST_URLS = Arrays.asList(
-			"/v1/auth/login/ok",
-	        "/v1/auth/login"
+			"/persona/create",
+	        "/auth/login"
 	    );
 	private String AUTHORIZATION_="Authorization";
 	private String BEARER="Bearer ";
-	private String pathAuth="/v1/auth/login";
+	private String pathAuth="/api/v1/auth/login";
 	
 	 private final JwtSecurityService jwtSecurityService;
 	 private final CustomUserDetailsService userDetailsService;

@@ -16,11 +16,11 @@ import prueba.com.pruebaAgenda.service.AuthenticationService;
 public class AutenticacionController {
 
 	private final AuthenticationService auteAuthenticationService;
-
+	
 	public AutenticacionController(AuthenticationService auteAuthenticationService) {
 		this.auteAuthenticationService = auteAuthenticationService;
 	}
-	
+
 	@PostMapping("/login")
 	public ResponseEntity<AuthenticationResponse> autenticar(@RequestBody LoginRequest request){
 		return new ResponseEntity<AuthenticationResponse>(this.auteAuthenticationService.authenticate(request),HttpStatus.OK);

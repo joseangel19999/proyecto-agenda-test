@@ -38,8 +38,10 @@ public class SecurityConfig {
 		JwtAuthenticationFilter jwtFilter = new JwtAuthenticationFilter(jwtSecurityService, userDetailsService);
 
 		http.csrf(csrf -> csrf.disable())
-				.authorizeHttpRequests(auth -> auth.requestMatchers("/api/v1/auth/login")
-				.permitAll().anyRequest().authenticated())
+				.authorizeHttpRequests(auth -> 
+				auth
+	            .requestMatchers("/auth/login","/persona/create").permitAll()
+	            .anyRequest().authenticated())
 				.sessionManagement(sess -> sess.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
 				.cors(Customizer.withDefaults())
 				.addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter.class);

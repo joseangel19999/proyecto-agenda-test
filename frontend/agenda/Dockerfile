@@ -14,7 +14,7 @@ RUN npm ci --legacy-peer-deps
 COPY . .
 
 # Construir la aplicación
-RUN npm run build -- --configuration=production
+RUN npm run build
 
 # Etapa de producción
 FROM nginx:alpine
