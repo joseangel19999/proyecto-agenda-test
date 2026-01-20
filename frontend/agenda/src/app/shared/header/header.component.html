@@ -1,0 +1,17 @@
+   <div class="container-fluid card-header">
+          <div class="row align-items-center">
+              <div class="col-6">
+                  <div class="contenedor_bienvenido">
+                    <h2>¡Bienvenido!</h2>
+                  </div>
+              </div>
+              <div class="col-6">
+            <app-profile-info class="perfil" [correo]="correo" [nombre]="nombre"></app-profile-info>
+          <div class="container-btn-menu">
+              <button mat-icon-button class="btn-visible" (click)="toggleSidenav()">
+              <mat-icon >menu</mat-icon>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>

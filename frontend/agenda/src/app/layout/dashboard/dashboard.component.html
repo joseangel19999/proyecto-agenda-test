@@ -1,0 +1,23 @@
+       <mat-sidenav-container class="sidenav-container">
+              <mat-sidenav
+                #drawer
+                class="sidenav"
+                [ngClass]="{ 'mat-elevation-z4': true }"
+                [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+                [mode]="(isHandset$ | async) ? 'over' : 'side'"
+                [opened]="!(isHandset$ | async)"
+              >
+                <button
+                  type="button"
+                  mat-icon-button
+                  (click)="drawer.toggle()"
+                  class="close-button"
+                >
+                <mat-icon>close</mat-icon>
+                </button>
+              <app-menu class="h-100 bg-white py-4 tilt-in-left-1"></app-menu>
+            </mat-sidenav>
+            <mat-sidenav-content class="content">
+             <router-outlet></router-outlet>
+            </mat-sidenav-content>
+        </mat-sidenav-container>

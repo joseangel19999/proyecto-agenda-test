@@ -1,0 +1,74 @@
+ .title__text span {
+   font: normal normal normal 14px/18px Montserrat;
+ }
+
+ .menu__footer{
+   position: absolute;
+   bottom: 1px;
+ }
+ .active {
+   background: #3B3C43 !important;
+
+   * {
+     color: white !important;
+   }
+ }
+
+ .contenedor_logo {
+   width: 100%;
+   height: auto;
+ }
+
+ .contenedor_logo img {
+   width: 310px;
+   height: 70px;
+   margin-left: 30px;
+ }
+
+ .menu__content {
+   margin: 0px 0px;
+ }
+
+ .menu__content p {
+   margin-top: 12px !important;
+   font: normal normal normal 14px/20px Montserrat;
+   letter-spacing: 0.24px;
+   color: #231F20;
+ }
+
+ .menu p {
+   font: normal normal medium 14px/20px Montserrat;
+   letter-spacing: 0.25px;
+   color: #000000;
+   margin-top: 10px;
+   margin-left: 20px;
+ }
+
+ .mat-expansion-panel-spacing {
+   margin: 16px 0;
+ }
+
+ .mat-expansion-panel-header {
+   display: flex;
+   align-items: center;
+   padding: 0 24px;
+   cursor: default;
+ }
+
+ .mat-expansion-panel-content {
+   padding: 16px 24px;
+ }
+
+ .menu {
+   height: 100%;
+ }
+
+ .menu__body {
+   display: flex;
+   flex-direction: column;
+   justify-content: space-between;
+ }
+
+ a {
+   text-decoration: none;
+ }

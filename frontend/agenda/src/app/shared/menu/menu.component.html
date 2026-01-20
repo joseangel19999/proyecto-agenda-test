@@ -1,0 +1,58 @@
+ <div class="menu container-fluid ">
+      <div class="menu__header d-flex flex-column">
+      </div>
+      <div class="menu__body">
+        <div class="menu__content my-4">
+          <mat-divider></mat-divider>
+
+          <div class="menu__list my-4">
+            <mat-accordion multi="true">
+              <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                  <mat-panel-title>
+                   <!--  <mat-icon>people</mat-icon> -->
+                      <mat-icon>description</mat-icon>
+                    <div class="ms-4 d-flex flex-column">
+                     <!--  <span class="fw-semibold">Registrar Equipos</span> -->
+                      <small class="text-muted d-md-none d-xl-block"
+                        >Gestion</small>
+                    </div>
+                  </mat-panel-title>
+                </mat-expansion-panel-header>
+                <mat-nav-list>
+                  <a
+                    mat-list-item
+                    [routerLink]="['/actividad']"
+                    routerLinkActive="active"
+                  >
+                    <small>Agenda de actividades</small>
+                  </a>
+                </mat-nav-list>
+              </mat-expansion-panel>
+            </mat-accordion>
+          </div>
+        </div>
+
+
+        <div class="menu__footer">
+          <mat-divider></mat-divider>
+          <div
+            class="mat-expansion-panel mat-expansion-panel-spacing"
+            [routerLink]="['/login']"
+          >
+            <div class="mat-expansion-panel-header">
+              <mat-panel-title>
+                <mat-icon>logout</mat-icon>
+                <div class="ms-4 d-flex flex-column">
+                  <span class="fw-semibold">Cerrar Sesión y Salir</span>
+                  <small class="text-muted d-md-none d-xl-block">Salir de la cuenta</small>
+                </div>
+              </mat-panel-title>
+            </div>
+          </div>
+          <p class="text-muted text-center">
+            <small>1.0.0</small>
+          </p>
+        </div>
+      </div>
+    </div>

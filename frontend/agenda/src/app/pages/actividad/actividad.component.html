@@ -1,0 +1,16 @@
+<div class="container-home">
+  <app-header class="fade-in component-header"></app-header>
+  <div class="container-text"></div>
+</div>
+
+<div class="card card-formulario">
+  <div class="card-header text-white">
+    <h4 class="mb-0" style="text-align: center">
+      Gestión de Actividades
+    </h4>
+  </div>
+  <div class="card-body card-min" style="height: 500px;">
+    <app-registro-actividad (notificarRegistrado)="listarActividades()"></app-registro-actividad>
+  </div>
+</div>
+<app-listar-actividad [actividades]="lista"></app-listar-actividad>

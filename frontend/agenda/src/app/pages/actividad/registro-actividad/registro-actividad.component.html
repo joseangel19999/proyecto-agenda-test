@@ -1,0 +1,76 @@
+<form [formGroup]="formActividad">
+  <div class="row mb-3">
+    <div class="col-md-4">
+      <label for="nombre" class="form-label">Nombre</label>
+      <input type="text" class="form-control" formControlName="nombre" id="nombre" placeholder="Ingrese el nombre"
+        required>
+      <div class="text-danger size-text-error">
+        @if (formActividad.get('nombre')?.invalid && formActividad.get('nombre')?.touched) {
+        @if (formActividad.get('nombre')?.errors?.['required']) {
+        Campo requerido.
+        }
+        @if (formActividad.get('nombre')?.errors?.['min']) {
+        Campo requerido.
+        }
+        @if (formActividad.get('nombre')?.errors?.['pattern']) {
+        Formato inválido.
+        }
+        }
+      </div>
+    </div>
+    <div class="col-md-3 mt-2 mt-lg-0">
+      <label for="fecha" class="form-label">Fecha</label>
+      <input type="date" class="form-control" formControlName="fecha" id="fecha" required>
+      <div class="text-danger size-text-error">
+        @if (formActividad.get('fecha')?.invalid && formActividad.get('fecha')?.touched) {
+        @if (formActividad.get('fecha')?.errors?.['required']) {
+        Campo requerido.
+        }
+        }
+      </div>
+    </div>
+    <div class="col-md-2">
+      <label for="horaInicio" class="form-label">Hora Inicio</label>
+      <input type="time" class="form-control" formControlName="horaInicio" id="horaInicio" required>
+      <div class="text-danger size-text-error">
+        @if (formActividad.get('horaInicio')?.invalid && formActividad.get('horaInicio')?.touched) {
+        @if (formActividad.get('horaInicio')?.errors?.['required']) {
+        Campo requerido.
+        }
+        }
+      </div>
+    </div>
+    <div class="col-md-2">
+      <label for="horaFin" class="form-label">Hora Fin</label>
+      <input type="time" class="form-control" formControlName="horaFin" id="horaFin" required>
+      <div class="text-danger size-text-error">
+        @if (formActividad.get('horaFin')?.invalid && formActividad.get('horaFin')?.touched) {
+        @if (formActividad.get('horaFin')?.errors?.['required']) {
+        Campo requerido.
+        }
+        }
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-3">
+    <div class="col-md-5">
+      <label for="comentario" class="form-label">Comentario</label>
+      <input type="text" class="form-control" formControlName="comentario" id="comentario" required>
+      <div class="text-danger size-text-error">
+        @if (formActividad.get('comentario')?.invalid && formActividad.get('comentario')?.touched) {
+        @if (formActividad.get('comentario')?.errors?.['required']) {
+        Campo requerido.
+        }
+        }
+      </div>
+    </div>
+  </div>
+  <div class="col-md-2">
+    @if(true){
+    <button type="button" class="btn btn-primary" (click)="registrarActividad()">Registrar</button>
+    }@else{
+    <button type="button" class="btn btn-primary">Actualizar</button>
+    }
+  </div>
+</form>

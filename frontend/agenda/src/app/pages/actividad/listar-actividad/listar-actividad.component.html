@@ -1,0 +1,55 @@
+<mat-card class="main-card" style="margin-top: 10px;">
+  <mat-card-content>
+    <!--  <button mat-raised-button color="primary" (click)="openDialog('0ms', '0ms')">Agregar Nuevo Empleado</button> -->
+    <div class="scroll-lista">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">Actividad</th>
+            <th scope="col">Comentario</th>
+            <th scope="col">Fecha</th>
+            <th scope="col">Hora Inicio</th>
+            <th scope="col">Hora Fin</th>
+            <th scope="col">Estatus</th>
+            <th scope="col">Horas trabajo</th>
+            <th scope="col">Guardar/Eliminar</th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (actividad of listaFilterActividades; track actividad.id;let i = $index) {
+          <tr>
+            <td>{{ actividad.nombre }}</td>
+            <td>{{actividad.comentario}}</td>
+            <td>{{ actividad.fecha }}</td>
+            <td>{{ actividad.horaInicio}}</td>
+            <td>{{ actividad.horaFin }}</td>
+            <td>{{actividad.estatus}}</td>
+            <td>{{actividad.estatus}}</td>
+            <td>
+              <button class="btn btn-light">
+                  <fa-icon [icon]="['fas', 'pen-to-square']"></fa-icon>
+              </button>
+              <button class="btn btn-light" (click)="eliminar(actividad.id)">
+                <fa-icon [icon]="['fas', 'trash']"></fa-icon>
+              </button>
+            </td>
+          </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+    <div class="d-flex justify-content-between p-2">
+      <ngb-pagination [collectionSize]="collectionSize" [(page)]="page" [pageSize]="pageSize"
+        (pageChange)="refreshCollection()">
+      </ngb-pagination>
+
+      <select class="form-select" style="width: auto" [(ngModel)]="pageSize" (ngModelChange)="refreshCollection()">
+        <option [ngValue]="5">5</option>
+        <option [ngValue]="10">10</option>
+        <option [ngValue]="20">20</option>
+        <option [ngValue]="50">50</option>
+        <option [ngValue]="100">100</option>
+      </select>
+    </div>
+  </mat-card-content>
+</mat-card>

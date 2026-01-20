@@ -1,0 +1,52 @@
+  .contenedor_bienvenido h2 {
+    display: flex;
+    align-items: center;
+    padding-left: 20px;
+    font: normal normal medium 14px/20px Montserrat;
+    letter-spacing: 0.25px;
+  }
+
+  .card-header {
+    width: 100%;
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background: white;
+  }
+
+  .btn-visible {
+    display: none;
+    border: none;
+    background-color: #FFFF;
+  }
+
+  .container-btn-menu {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    padding-right: 10px;
+  }
+
+  @media (max-width: 768px) {
+    .contenedor_bienvenido {
+      height: 100%;
+      margin-top: 10px;
+    }
+
+    .contenedor_bienvenido h2 {
+      font-size: 14px;
+    }
+
+    .btn-visible {
+      display: block;
+    }
+
+    .perfil {
+      display: none;
+    }
+
+    .card-header {
+      width: 100%;
+    }
+
+  }
