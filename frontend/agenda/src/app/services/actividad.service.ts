@@ -20,4 +20,7 @@ export class ActividadService {
   listarActividades():Observable<ActividadResponse[]>{
     return this.http.get<ActividadResponse[]>(`${this.apiUrl}/actividad`);
   }
+  delete(id:number):Observable<void>{
+    return this.http.delete<void>(`${this.apiUrl}/actividad/${id}`);
+  }
 }

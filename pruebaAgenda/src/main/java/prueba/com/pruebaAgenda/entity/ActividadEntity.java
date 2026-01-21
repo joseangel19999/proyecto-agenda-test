@@ -43,7 +43,7 @@ public class ActividadEntity {
 	private LocalTime horaFin;
 	@Column(name="comentario")
 	private String comentario;
-	@OneToOne(fetch = FetchType.LAZY,cascade = CascadeType.ALL,orphanRemoval = true)
+	@OneToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name="cod_estatus")
 	private EstatusEntity estatus;
 	@ManyToOne(fetch = FetchType.LAZY)

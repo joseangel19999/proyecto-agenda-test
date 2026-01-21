@@ -28,19 +28,16 @@ import prueba.com.pruebaAgenda.utils.DateTimeParser;
 @Slf4j
 public class ActividadServiceImpl implements IActividadService {
 
-    private final CustomUserDetailsService customUserDetailsService;
 
 	private final ActividadRepository actividadRepository;
 	private final EstatusRepository estatusRepository;
 	private final PersonaRepository personaRepository;
 
 	public ActividadServiceImpl(ActividadRepository actividadRepository, EstatusRepository estatusRepository,
-			PersonaRepository personaRepository, CustomUserDetailsService customUserDetailsService) {
-		super();
+			PersonaRepository personaRepository) {
 		this.actividadRepository = actividadRepository;
 		this.estatusRepository = estatusRepository;
 		this.personaRepository = personaRepository;
-		this.customUserDetailsService = customUserDetailsService;
 	}
 
 	@Transactional

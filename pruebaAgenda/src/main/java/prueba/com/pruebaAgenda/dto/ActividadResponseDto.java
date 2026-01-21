@@ -2,6 +2,7 @@ package prueba.com.pruebaAgenda.dto;
 
 public class ActividadResponseDto {
 
+	private Integer id;
 	private String nombre;
 	private String fecha;
 	private String horaInicio;
@@ -12,8 +13,11 @@ public class ActividadResponseDto {
 	public ActividadResponseDto() {
 	}
 
-	public ActividadResponseDto(String nombre, String fecha, String horaInicio, String horaFin, String comentario,
-			String estatus) {
+
+
+	public ActividadResponseDto(Integer id, String nombre, String fecha, String horaInicio, String horaFin,
+			String comentario, String estatus) {
+		this.id = id;
 		this.nombre = nombre;
 		this.fecha = fecha;
 		this.horaInicio = horaInicio;
@@ -21,6 +25,8 @@ public class ActividadResponseDto {
 		this.comentario = comentario;
 		this.estatus = estatus;
 	}
+
+
 
 	public String getNombre() {
 		return nombre;
@@ -68,6 +74,18 @@ public class ActividadResponseDto {
 
 	public void setEstatus(String estatus) {
 		this.estatus = estatus;
+	}
+
+
+
+	public Integer getId() {
+		return id;
+	}
+
+
+
+	public void setId(Integer id) {
+		this.id = id;
 	}
 	
 }

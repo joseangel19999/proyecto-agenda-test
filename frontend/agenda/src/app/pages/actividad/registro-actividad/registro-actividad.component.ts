@@ -73,7 +73,6 @@ export class RegistroActividadComponent implements OnInit {
           this.actividadResponse=response;
           this.notificarRegistrado.emit();
           this.showAlertSuccess("Registro Exitoso");
-          console.log("DATA ACTIVIDAD: "+JSON.stringify(response));
         },error:(err)=>{
           console.log("DATA ACTIVIDAD: "+JSON.stringify(err));
           this.showMessageError("Hubo un error al registrar la actividad");

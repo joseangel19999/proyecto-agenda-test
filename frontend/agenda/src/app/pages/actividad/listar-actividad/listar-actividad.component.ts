@@ -1,4 +1,4 @@
-import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
@@ -36,7 +36,7 @@ import Swal, { SweetAlertResult } from 'sweetalert2';
   templateUrl: './listar-actividad.component.html',
   styleUrl: './listar-actividad.component.css'
 })
-export class ListarActividadComponent implements OnInit,OnChanges{
+export class ListarActividadComponent implements OnInit, OnChanges {
 
   hide = true;
   page = 1;
@@ -44,20 +44,21 @@ export class ListarActividadComponent implements OnInit,OnChanges{
   collectionSize = 0;
   listaEstatus: EstatusResponse[] = [];
   @Input() actividades: ActividadResponse[] = [];
+  @Output() notificarRegistrado = new EventEmitter<void>();
   listaFilterActividades: ActividadResponse[] = [];
 
   constructor(
     private estatusService: EstatusService,
     private library: FaIconLibrary,
-    private actividadService:ActividadService
+    private actividadService: ActividadService
   ) {
     this.library.addIconPacks(fas);
   }
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['actividades']) {
-    this.listaFilterActividades = this.actividades;
-    this.collectionSize=this.actividades.length;
-    this.refreshCollection();
+      this.listaFilterActividades = this.actividades;
+      this.collectionSize = this.actividades.length;
+      this.refreshCollection();
     }
   }
   ngOnInit(): void {
@@ -73,10 +74,18 @@ export class ListarActividadComponent implements OnInit,OnChanges{
       }
     })
   }
-   async eliminar(id: number) {
+  async eliminar(id: number) {
     const result = await this.confirmarEliminar();
     if (result.isConfirmed) {
-
+      console.log("ID ELIMINAR: " + JSON.stringify(id));
+      this.actividadService.delete(id).subscribe({
+        next: () => {
+          this.notificarRegistrado.emit();
+          this.showAlertSuccess("Eliminacion exitosa");
+        }, error: (err) => {
+          this.showMessageError("Hubo un error al eliminar");
+        }
+      });
     }
   }
   refreshCollection() {
@@ -86,7 +95,7 @@ export class ListarActividadComponent implements OnInit,OnChanges{
     );
   }
 
-   confirmarEliminar(): Promise<SweetAlertResult> {
+  confirmarEliminar(): Promise<SweetAlertResult> {
     return Swal.fire({
       title: "¿Estas seguro de eliminar?",
       icon: "warning",
@@ -97,6 +106,29 @@ export class ListarActividadComponent implements OnInit,OnChanges{
       customClass: {
         cancelButton: 'sweet-alert-cancel-white-text'
       }
+    });
+  }
+
+
+  showMessageError(mensaje: string): Promise<SweetAlertResult> {
+    return Swal.fire({
+      icon: "error",
+      text: mensaje,
+      showCancelButton: false,
+      confirmButtonText: 'Aceptar',
+      customClass: {
+        confirmButton: 'sweet-alert-custom-confirm-button'
+      }
+    });
+  }
+
+  showAlertSuccess(mensaje: string) {
+    Swal.fire({
+      title: "sucess",
+      icon: "success",
+      text: mensaje,
+      showCancelButton: false,
+      confirmButtonText: "Aceptar",
     });
   }
 }

@@ -21,6 +21,7 @@ public class ActividadMapper {
 
 	public static ActividadResponseDto toDto(ActividadEntity entity) {
 		ActividadResponseDto dto = new ActividadResponseDto();
+		dto.setId(entity.getId());
 		dto.setComentario(entity.getComentario());
 		dto.setEstatus(entity.getEstatus().getDescripcion());
 		dto.setFecha(DateTimeParser.localDateTimeToString(entity.getFecha()));

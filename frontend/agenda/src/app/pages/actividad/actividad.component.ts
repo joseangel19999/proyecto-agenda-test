@@ -26,7 +26,6 @@ export class ActividadComponent implements OnInit{
     this.actividadService.listarActividades().subscribe({
       next:(response:ActividadResponse[])=>{
         this.lista=response;
-        console.log("DATA LISTA ACTIVIDADES: "+JSON.stringify(response));
       },error(err) {
         console.log("DATA ERROR :"+JSON.stringify(err));
       },
